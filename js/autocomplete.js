@@ -5,19 +5,15 @@ const wordList = ["america", "baby", "banana", "bomb", "hell", "hello", "holler"
 
 var clicked = false;
 
-input.addEventListener('focus', handleFocusIn);
-input.addEventListener('focusout', handleFocusOut);
-
-input.addEventListener('input', getWords);
-
-function handleFocusIn() {
+input.addEventListener('focus', function() {
     acc.className = 'autocomplete autocomplete--visible';
     getWords();
-}
-
-function handleFocusOut() {
+});
+input.addEventListener('focusout', function() {
     acc.className = 'autocomplete autocomplete--hidden';
-}
+});
+
+input.addEventListener('input', getWords);
 
 function getWords() {
     var val = input.value;
@@ -32,11 +28,12 @@ function getWords() {
     }
 
     addWords(selWords);
-    console.log(selWords);
 }
 
 function addWords(list) {
-    removeAllChildren(acc);
+    while(acc.firstChild) {
+        acc.removeChild(acc.firstChild);
+    }
 
     for(var i = 0; i < list.length; i++){
         var cont = document.createElement('div');
@@ -51,7 +48,9 @@ function addWords(list) {
         var textVal = document.createTextNode(list[i]);
         text.appendChild(textVal);
 
-        text.addEventListener('mousedown', handleTextChange);
+        text.addEventListener('mousedown', function(e) {
+            input.value = e.target.innerHTML;
+        });
 
         cont.appendChild(fill1);
         cont.appendChild(text);
@@ -59,14 +58,4 @@ function addWords(list) {
 
         acc.appendChild(cont);
     }
-}
-
-function removeAllChildren(el) {
-    while(el.firstChild) {
-        el.removeChild(el.firstChild);
-    }
-}
-
-function handleTextChange(e) {
-    input.value = e.target.innerHTML;
 }
