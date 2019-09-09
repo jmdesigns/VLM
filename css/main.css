@@ -88,11 +88,9 @@
   grid-area: bottom-left; }
 
 .image--horizontal {
-  background: #66ff66;
   grid-area: ihorizontal; }
 
 .image--vertical {
-  background: #66ff66;
   grid-area: ivertical; }
 
 .image {
@@ -108,7 +106,7 @@
   .image-grid {
     grid-template-columns: 300px 300px 300px;
     grid-template-rows: 300px 300px 300px;
-    grid-template-areas: "top-left top-middle ivertical" "bottom-left top-right ivertical" "ihorizontal ihorizontal ihorizontal"; } }
+    grid-template-areas: "top-left top-middle ivertical" "bottom-left top-right ivertical" "ihorizontal ihorizontal ."; } }
 @media screen and (max-width: 1080px) {
   .image-grid {
     grid-template-columns: 300px 300px;
