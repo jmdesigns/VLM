@@ -1,7 +1,7 @@
 var acc = this.document.getElementById('autocomplete');
 var input = document.getElementById('input');
 
-const wordList = ["america", "baby", "banana", "bomb", "hell", "hello", "holler", "hundred", "water", "wonder", "world"];
+const wordList = ["america", "baby", "baboon", "baboons","banana", "bandana", "bomb", "hell", "hello", "holler", "hundred", "hunter", "water", "wonder", "wonton", "world"];
 
 var clicked = false;
 
@@ -21,7 +21,7 @@ function getWords() {
 
     if(val.length >= 3) {
         for(var i = 0; i < wordList.length; i++) {
-            if(wordList[i].indexOf(val) === 0) {
+            if(wordList[i].indexOf(val.toLocaleLowerCase()) === 0) {
                 selWords.push(wordList[i]);
             }
         }
