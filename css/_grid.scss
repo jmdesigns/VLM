@@ -1,0 +1,106 @@
+.grid-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: #eeeeee;
+    display: flex;
+    justify-items: center;
+
+    position: relative;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-rows: 300px 300px;
+    grid-template-areas: 
+        "top-left top-middle top-right ivertical"
+        "bottom-left ihorizontal ihorizontal ivertical";
+    grid-gap: 20px;
+
+    margin: 0 auto;
+}
+
+.image--top-left {
+    grid-area: top-left;
+}
+
+.image--top-middle {
+    grid-area: top-middle;
+}
+
+.image--top-right {
+    grid-area: top-right;
+}
+
+.image--bottom-left {
+    grid-area: bottom-left;
+}
+
+.image--horizontal {
+    background: #66ff66;
+
+    grid-area: ihorizontal;
+}
+
+.image--vertical {
+    background: #66ff66;
+
+    grid-area: ivertical;
+}
+
+.image {
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+        transform: scale(1.25);
+        box-shadow: 0px 0px 30px 5px rgba(80, 80, 80, 0.75);
+    }
+}
+
+@media screen and (max-width: 1360px) {
+    .image-grid {
+        grid-template-columns: 300px 300px 300px;
+        grid-template-rows: 300px 300px 300px;
+        grid-template-areas: 
+            "top-left top-middle ivertical"
+            "bottom-left top-right ivertical"
+            "ihorizontal ihorizontal ihorizontal";
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .image-grid {
+        grid-template-columns: 300px 300px;
+        grid-template-rows: 300px 300px 300px 300px;
+        grid-template-areas: 
+            "top-left ivertical"
+            "bottom-left ivertical"
+            "top-right top-middle"
+            "ihorizontal ihorizontal";
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .image-grid {
+        grid-template-columns: 300px;
+        grid-template-rows: 300px 300px 300px 300px;
+        grid-template-areas: 
+            "top-left"
+            "top-middle"
+            "top-right"
+            "bottom-left";
+        grid-column-gap: 0;
+    }
+
+    .image--vertical, .image--horizontal {
+        visibility: none;
+        width: 0;
+        height: 0;
+    }
+
+    .image:hover {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 white;
+    }
+}
