@@ -38,14 +38,10 @@
 }
 
 .image--horizontal {
-    background: #66ff66;
-
     grid-area: ihorizontal;
 }
 
 .image--vertical {
-    background: #66ff66;
-
     grid-area: ivertical;
 }
 
@@ -65,7 +61,7 @@
         grid-template-areas: 
             "top-left top-middle ivertical"
             "bottom-left top-right ivertical"
-            "ihorizontal ihorizontal ihorizontal";
+            "ihorizontal ihorizontal .";
     }
 }
 
